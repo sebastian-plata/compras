@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../public/favicon.svg" type="image/x-icon">
+    <title>mecompras</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@400;500;700;900&display=swap");
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            padding: 0.5rem 0.5rem;
+        }
+
+        .login__container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            min-height: 100vh;
+
+            border-radius: 18px;
+            background-color: #ff5722;
+            box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px,
+                rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
+        }
+
+        .login__container h1 {
+            color: #ebebeb;
+            font-family: Poppins, sans-serif;
+            font-size: 44px;
+        }
+
+        .login__container form {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        form input[type="text"],
+        form input[type="password"],
+        form input[type="submit"] {
+            padding: 1rem;
+        }
+
+        form input[type="text"],
+        form input[type="password"] {
+            font-size: 18px;
+            border-radius: 18px;
+            text-align: center;
+
+            border: none;
+            color: #333333;
+            background-color: #f5f5f5;
+        }
+
+        form input[type="submit"] {
+            font-family: Poppins, sans-serif;
+            font-size: 16px;
+
+            color: #ff5722;
+            background-color: #333333;
+
+            border: none;
+            border-radius: 18px;
+            margin-top: 2rem;
+
+            cursor: pointer;
+        }
+
+        form input[type="submit"]:hover {
+            transform: scale(1.05);
+            background-color: #ff8a50;
+            color: #ebebeb;
+        }
+
+        .login__container p {
+            font-family: Inter, sans-serif;
+            color: #ff8a50;
+            margin-top: 3rem;
+        }
+
+        /* media queries */
+
+        @media screen and (min-width: 992px) {
+            .login__container h1 {
+                font-size: 72px;
+            }
+
+            form input[type="text"],
+            form input[type="password"] {
+                font-size: 30px;
+            }
+
+            form input[type="submit"] {
+                font-size: 24px;
+            }
+
+            .login__container p {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login__container">
+        <h1>mecompras</h1>
+        <form action="/login" method="POST">
+            <input type="text" name="user" placeholder="nombre de usuario" />
+            <input type="password" name="pass" placeholder="password" />
+            <input type="submit" value="iniciar sesión" />
+        </form>
+        <!-- fragmento ejs que pregunta por el valor booleano de la variable/objeto "error",
+        si hay error, "error = true" entonces se renderiza el elemento <p> mostrando el mensaje al usuario -->
+
+        <% if (error) {%>
+            <p>usuario o contraseña son incorrectos</p>
+            <% } %>
+    </div>
+</body>
+
+</html>
